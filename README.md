@@ -19,10 +19,12 @@ composer require brightfish/textformatter
 
 ```php
 $formatter = new Brightfish\TextFormatter();
-echo $formatter->formatVatNumber('BE0123.456.789')  // BE0123456789;
-echo $formatter->formatVatNumber('FR123.456.789')   // FR123456789;
-echo $formatter->formatVatNumber('123.456.789')     // BE0123456789;
-echo $formatter->formatVatNumber('123-456-789')     // BE0123456789;
+
+// format VAT numbers
+echo $formatter->formatVatNumber('BE0123.456.789'); // BE0123456789;
+echo $formatter->formatVatNumber('FR123.456.789');  // FR123456789;
+echo $formatter->formatVatNumber('123.456.789');    // BE0123456789;
+echo $formatter->formatVatNumber('123-456-789');    // BE0123456789;
 ```
 
 ## Testing

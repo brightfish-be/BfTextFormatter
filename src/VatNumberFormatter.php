@@ -2,26 +2,9 @@
 
 namespace Brightfish\TextFormatter;
 
-class TextFormatter
+class VatNumberFormatter
 {
-    public function __construct() {}
-
-    public function formatCampaignName(string $input): string
-    {
-        return $input;
-    }
-
-    public function formatMovieTitle(string $input): string
-    {
-        return $input;
-    }
-
-    public function formatCompanyName(string $input): string
-    {
-        return $input;
-    }
-
-    public function formatVatNumber(string $input, string $defaultCountry = 'BE'): string
+    public function format(string $input, string $defaultCountry = 'BE'): string
     {
         $vat_number = str_replace(['.', ' ', '-'], '', $input);
         $vat_number = strtoupper($vat_number);
