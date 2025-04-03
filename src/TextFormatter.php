@@ -30,8 +30,8 @@ class TextFormatter
             // there is no country prefix yet
             // VAT number rules on https://euipo.europa.eu/tunnel-web/secure/webdav/guest/document_library/Documents/COSME/VAT%20numbers%20EU.pdf
             $vatPadding = '0';
-            $vatPrefix = match($defaultCountry){
-                "AT" => "ATU",
+            $vatPrefix = match ($defaultCountry) {
+                'AT' => 'ATU',
                 default => $defaultCountry,
             };
             $vatLength = match ($defaultCountry) {

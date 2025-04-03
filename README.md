@@ -1,5 +1,8 @@
 # Format text the Brightfish way
 
+[![Tests](https://github.com/brightfish-be/TextFormatter/actions/workflows/run-tests.yml/badge.svg)](https://github.com/brightfish-be/TextFormatter/actions/workflows/run-tests.yml)
+[![Fix PHP code style issues](https://github.com/brightfish-be/TextFormatter/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/brightfish-be/TextFormatter/actions/workflows/fix-php-code-style-issues.yml)
+
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
