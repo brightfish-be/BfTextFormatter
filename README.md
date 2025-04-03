@@ -20,7 +20,9 @@ composer require brightfish/textformatter
 
 ```php
 $formatter = new Brightfish\TextFormatter();
-echo $skeleton->echoPhrase('Hello, Brightfish!');
+echo $formatter->formatVatNumber('BE0123.456.789')  // BE0123456789;
+echo $formatter->formatVatNumber('123.456.789')     // BE0123456789;
+echo $formatter->formatVatNumber('123-456-789')     // BE0123456789;
 ```
 
 ## Testing
