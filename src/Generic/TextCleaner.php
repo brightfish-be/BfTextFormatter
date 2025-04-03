@@ -1,12 +1,13 @@
 <?php
 
-namespace Brightfish\TextFormatter;
+namespace Brightfish\TextFormatter\Generic;
 
 class TextCleaner
 {
     private array $str_replaces = [];
 
     private array $preg_replaces = [];
+
     private string $separators = " \t\r\n\f\v-()'\"";
 
     public function setSeparators(string $separators): void
@@ -97,25 +98,26 @@ class TextCleaner
 
     private function titleCase(string $input): string
     {
-        return ucwords($this->lowerCase($input),$this->separators);
+        return ucwords($this->lowerCase($input), $this->separators);
     }
 
     private function lowerCase(string $input): string
     {
         // list of all character diacritics for latin alphabet
 
-        $before = str_split("ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ");
-        $after =  str_split("áàâäçéèêëóòôöúùüûíìïî");
+        $before = str_split('ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ');
+        $after = str_split('áàâäçéèêëóòôöúùüûíìïî');
         $input = str_replace($before, $after, $input);
 
         return strtolower($input);
     }
+
     private function upperCase(string $input): string
     {
         // list of all character diacritics for latin alphabet
 
-        $before =  str_split("áàâäçéèêëóòôöúùüûíìïî");
-        $after = str_split("ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ");
+        $before = str_split('áàâäçéèêëóòôöúùüûíìïî');
+        $after = str_split('ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ');
         $input = str_replace($before, $after, $input);
 
         return strtoupper($input);

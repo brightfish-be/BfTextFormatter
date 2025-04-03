@@ -1,6 +1,8 @@
 <?php
 
-namespace Brightfish\TextFormatter;
+namespace Brightfish\TextFormatter\Specific;
+
+use Brightfish\TextFormatter\Generic\TextCleaner;
 
 class MovieFormatter extends TextCleaner
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Brightfish\TextFormatter\VatNumberFormatter;
+use Brightfish\TextFormatter\Specific\VatNumberFormatter;
 
 it('accepts a normal VAT number', function () {
     $formatter = new VatNumberFormatter;

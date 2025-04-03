@@ -1,6 +1,6 @@
 <?php
 
-namespace Brightfish\TextFormatter;
+namespace Brightfish\TextFormatter\Specific;
 
 class VatNumberFormatter
 {

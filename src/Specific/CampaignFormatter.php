@@ -1,8 +1,10 @@
 <?php
 
-namespace Brightfish\TextFormatter;
+namespace Brightfish\TextFormatter\Specific;
 
-class CompanyFormatter extends TextCleaner
+use Brightfish\TextFormatter\Generic\TextCleaner;
+
+class CampaignFormatter extends TextCleaner
 {
     public function __construct()
     {
