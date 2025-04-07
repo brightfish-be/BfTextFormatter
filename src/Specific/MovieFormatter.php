@@ -8,9 +8,16 @@ class MovieFormatter extends TextCleaner
 {
     public function __construct()
     {
-        $this->uppercaseWords(explode(',', 'i,ii,iii,iv')); // common prefixes
-        // $this->lowercaseWords(explode(',', 'nv,sa,bv,bvba,sprl'));
-        // $this->addReplaces(['Cinextra' => 'CineXtra']); // specific spelling
+        $this->addReplaces([
+            '_' => ' ',
+            '.' => ' ',
+        ], alsoPartials: true);
+        $this->uppercaseWords(explode(',', 'iii,ii,iv')); // for sequels
+        $this->uppercaseWords(explode(',', 'cia,fbi,nsa')); // government agencies
+        $this->lowercaseWords(explode(',', 'vs'));
+        $this->addRegexReplaces([
+            "/(\s\s+)/" => ' ',
+        ]);
     }
 
     public function format(string $input): string

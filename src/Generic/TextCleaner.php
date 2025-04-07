@@ -4,11 +4,15 @@ namespace Brightfish\TextFormatter\Generic;
 
 class TextCleaner
 {
-    private array $str_replaces = [];
+    const DIACRITICS_UPPER = 'ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ';
 
-    private array $preg_replaces = [];
+    const DIACRITICS_LOWER = 'áàâäçéèêëóòôöúùüûíìïî';
 
-    private string $separators = " \t\r\n\f\v-()'\"";
+    private array $stringReplaceBy = [];
+
+    private array $regexReplaceBy = [];
+
+    private string $separators = " \t\r\n\f\v-()'\"\.";
 
     public function setSeparators(string $separators): void
     {
@@ -22,8 +26,9 @@ class TextCleaner
     {
         foreach ($words as $word) {
             $this->addReplaces(
-                [$this->titleCase($word) => $this->upperCase($word)],
-                $delimiters);
+                [' '.$this->titleCase($word) => ' '.$this->upperCase($word)],
+                $delimiters,
+                true);
         }
 
         return $this;
@@ -36,8 +41,9 @@ class TextCleaner
     {
         foreach ($words as $word) {
             $this->addReplaces(
-                [$this->titleCase($word) => $this->lowerCase($word)],
-                $delimiters);
+                [' '.$this->titleCase($word) => ' '.$this->lowerCase($word)],
+                $delimiters,
+                true);
         }
 
         return $this;
@@ -60,10 +66,10 @@ class TextCleaner
         foreach ($words as $old => $new) {
             if ($old != $new) {
                 if ($alsoPartials) {
-                    $this->str_replaces[$old] = $new;
+                    $this->stringReplaceBy[$old] = $new;
                 } else {
                     foreach ($delimiters as $delimiter) {
-                        $this->str_replaces["$old$delimiter"] = "$new$delimiter";
+                        $this->stringReplaceBy["$old$delimiter"] = "$new$delimiter";
                     }
                 }
             }
@@ -76,7 +82,7 @@ class TextCleaner
     {
         foreach ($words as $old => $new) {
             if ($old != $new) {
-                $this->preg_replaces[$old] = $new;
+                $this->regexReplaceBy[$old] = $new;
             }
         }
 
@@ -86,39 +92,41 @@ class TextCleaner
     public function cleanup(string $input): string
     {
         $result = ' '.$this->titleCase($input).' ';
-        if ($this->str_replaces) {
-            $result = str_replace(array_keys($this->str_replaces), array_values($this->str_replaces), $result);
+        if ($this->stringReplaceBy) {
+            $result = str_replace(array_keys($this->stringReplaceBy), array_values($this->stringReplaceBy), $result);
         }
-        if ($this->preg_replaces) {
-            $result = preg_replace(array_keys($this->preg_replaces), array_values($this->preg_replaces), $result);
+        if ($this->regexReplaceBy) {
+            $result = preg_replace(array_keys($this->regexReplaceBy), array_values($this->regexReplaceBy), $result);
         }
 
         return trim($result);
     }
 
+    // -------- INTERNAL FUNCTIONS
+
     private function titleCase(string $input): string
     {
-        return ucwords($this->lowerCase($input), $this->separators);
+        return mb_convert_case($this->lowerCase($input), MB_CASE_TITLE, 'UTF-8');
     }
 
     private function lowerCase(string $input): string
     {
-        // list of all character diacritics for latin alphabet
-
-        $before = str_split('ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ');
-        $after = str_split('áàâäçéèêëóòôöúùüûíìïî');
-        $input = str_replace($before, $after, $input);
+        // first do diacritics that strtolower wouldn't replace
+        $input = str_replace(
+            str_split(self::DIACRITICS_UPPER),
+            str_split(self::DIACRITICS_LOWER),
+            $input);
 
         return strtolower($input);
     }
 
     private function upperCase(string $input): string
     {
-        // list of all character diacritics for latin alphabet
-
-        $before = str_split('áàâäçéèêëóòôöúùüûíìïî');
-        $after = str_split('ÁÀÂÄÇÉÈÊËÓÒÔÖÚÙÜÛÍÌÏÎ');
-        $input = str_replace($before, $after, $input);
+        // first do diacritics that strtoupper wouldn't replace
+        $input = str_replace(
+            str_split(self::DIACRITICS_LOWER),
+            str_split(self::DIACRITICS_UPPER),
+            $input);
 
         return strtoupper($input);
     }
