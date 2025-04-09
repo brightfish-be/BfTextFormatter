@@ -56,6 +56,15 @@ use Brightfish\TextFormatter\CampaignNameFormatter;
 $formatter = new CampaignNameFormatter();
 ```
 
+### CinemaNameFormatter
+
+```php
+use Brightfish\TextFormatter\CinemaNameFormatter;
+
+$formatter = new CinemaNameFormatter();
+$result = $formatter->format("pathe charleroi");    // Pathé Charleroi
+```
+
 ### CompanyNameFormatter
 
 ```php
