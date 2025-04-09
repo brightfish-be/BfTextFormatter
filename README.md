@@ -33,14 +33,51 @@ Tokens will be stored in plain text in "$HOME/.config/composer/auth.json" for fu
 
 ## Usage
 
-```php
-$formatter = new Brightfish\TextFormatter();
+### BaseFormatter
 
-// format VAT numbers
-echo $formatter->formatVatNumber('BE0123.456.789'); // BE0123456789;
-echo $formatter->formatVatNumber('FR123.456.789');  // FR123456789;
-echo $formatter->formatVatNumber('123.456.789');    // BE0123456789;
-echo $formatter->formatVatNumber('123-456-789');    // BE0123456789;
+```php
+// generic text formatter
+use Brightfish\TextFormatter\BaseFormatter;
+
+$formatter = new BaseFormatter;
+$formatter->uppercaseWords(['cia', 'fbi', 'nsa']);
+$formatter->lowercaseWords(['in', 'a', 'the']);
+$formatter->removeWords(['draft', 'void', 'obsolete']);
+$result = $formatter->clean("The dog in the house"); // the Dog in the House
+
+$formatter = (new BaseFormatter)->setForceTransliterate(true);
+```
+
+### CampaignNameFormatter
+
+```php
+use Brightfish\TextFormatter\CampaignNameFormatter;
+
+$formatter = new CampaignNameFormatter();
+```
+
+### CompanyNameFormatter
+
+```php
+use Brightfish\TextFormatter\CompanyNameFormatter;
+
+$formatter = new CompanyNameFormatter();
+```
+
+### MovieTitleFormatter
+
+```php
+use Brightfish\TextFormatter\MovieTitleFormatter;
+
+$formatter = new MovieTitleFormatter();
+```
+
+### PersonNameFormatter
+
+```php
+use Brightfish\TextFormatter\PersonNameFormatter;
+
+$formatter = new PersonNameFormatter();
 ```
 
 ## Testing
