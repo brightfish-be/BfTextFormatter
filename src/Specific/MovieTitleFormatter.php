@@ -2,7 +2,7 @@
 
 namespace Brightfish\TextFormatter\Specific;
 
-use Brightfish\TextFormatter\Generic\BaseFormatter;
+use Brightfish\TextFormatter\BaseFormatter;
 
 class MovieTitleFormatter extends BaseFormatter
 {

@@ -2,7 +2,7 @@
 
 namespace Brightfish\TextFormatter\Tests\Generic;
 
-use Brightfish\TextFormatter\Generic\BaseFormatter;
+use Brightfish\TextFormatter\BaseFormatter;
 
 it('add fixes multi-lines', function () {
     $formatter = new BaseFormatter;
@@ -11,7 +11,7 @@ it('add fixes multi-lines', function () {
 
 it('does transliterate', function () {
     $formatter = (new BaseFormatter)->setForceTransliterate(true);
-    expect($formatter->cleanup("Ïntérnâtíónàlìsàtïön"))->toBe('Internationalisation');
+    expect($formatter->cleanup('Ïntérnâtíónàlìsàtïön'))->toBe('Internationalisation');
 });
 
 it('does uppercase words', function () {

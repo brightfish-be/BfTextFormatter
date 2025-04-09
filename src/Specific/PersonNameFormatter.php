@@ -2,7 +2,7 @@
 
 namespace Brightfish\TextFormatter\Specific;
 
-use Brightfish\TextFormatter\Generic\BaseFormatter;
+use Brightfish\TextFormatter\BaseFormatter;
 
 class PersonNameFormatter extends BaseFormatter
 {
@@ -11,7 +11,7 @@ class PersonNameFormatter extends BaseFormatter
         $this->addReplaceWords([
             'Ing' => 'ing',
             'Ir' => 'ir',
-            ]); // specific spelling
+        ]); // specific spelling
     }
 
     public function format(string $input): string

@@ -1,6 +1,6 @@
 <?php
 
-namespace Brightfish\TextFormatter\Generic;
+namespace Brightfish\TextFormatter;
 
 use Transliterator;
 
@@ -19,18 +19,21 @@ class BaseFormatter
     public function setSeparators(string $separators): self
     {
         $this->separators = $separators;
+
         return $this;
     }
 
     public function setWhiteSpace(string $whitespace): self
     {
         $this->convertToWhitespace = $whitespace;
+
         return $this;
     }
 
     public function setForceTransliterate(bool $forceTransliterate): self
     {
         $this->forceTransliterate = $forceTransliterate;
+
         return $this;
     }
 
@@ -123,7 +126,7 @@ class BaseFormatter
             $result = preg_replace(array_keys($this->regexReplaceBy), array_values($this->regexReplaceBy), $result);
         }
         $result = preg_replace('/\s+/', ' ', $result);
-        if($this->forceTransliterate){
+        if ($this->forceTransliterate) {
             $tl = Transliterator::create('Latin-ASCII;');
             $result = $tl->transliterate($result);
         }
