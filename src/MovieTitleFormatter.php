@@ -1,8 +1,6 @@
 <?php
 
-namespace Brightfish\TextFormatter\Specific;
-
-use Brightfish\TextFormatter\BaseFormatter;
+namespace Brightfish\TextFormatter;
 
 class MovieTitleFormatter extends BaseFormatter
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Brightfish\TextFormatter\Specific\CompanyNameFormatter;
+use Brightfish\TextFormatter\CompanyNameFormatter;
 
 it('fixes random capitalisation', function () {
     $formatter = new CompanyNameFormatter;

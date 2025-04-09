@@ -1,10 +1,8 @@
 <?php
 
-namespace Brightfish\TextFormatter\Specific;
+namespace Brightfish\TextFormatter;
 
-use Brightfish\TextFormatter\BaseFormatter;
-
-class CompanyNameFormatter extends BaseFormatter
+class CampaignNameFormatter extends BaseFormatter
 {
     public function __construct()
     {
@@ -12,7 +10,7 @@ class CompanyNameFormatter extends BaseFormatter
         $this->uppercaseWords(explode(',', 'UGC,BASF,BMW,BNP,CPH,NRJ,TCCC,VTM,VRT,HLN,DH,CAPA,DCM'));
         $this->uppercaseWords(explode(',', 'MIVB,STIB,TEC,NMBS,SNCB,TIBI,FOD')); // institutional
         $this->uppercaseWords(explode(',', 'OMD,OMG,WPP')); // agencies
-        $this->lowercaseWords(explode(',', 'nv,sa,bv,bvba,sprl,srl,cv'));
+        $this->lowercaseWords(explode(',', 'nv,sa,bv,bvba,sprl'));
         $this->addReplaceStrings(['Cinextra' => 'CineXtra']); // specific spelling
     }
 

@@ -2,7 +2,7 @@
 
 namespace Brightfish\TextFormatter\Tests\Specific;
 
-use Brightfish\TextFormatter\Specific\PersonNameFormatter;
+use Brightfish\TextFormatter\PersonNameFormatter;
 
 it('does simple names', function () {
     $formatter = new PersonNameFormatter;

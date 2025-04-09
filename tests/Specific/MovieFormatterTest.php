@@ -1,6 +1,6 @@
 <?php
 
-use Brightfish\TextFormatter\Specific\MovieTitleFormatter;
+use Brightfish\TextFormatter\MovieTitleFormatter;
 
 it('works for FR titles', function () {
     $formatter = new MovieTitleFormatter;
