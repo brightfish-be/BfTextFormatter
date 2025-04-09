@@ -2,9 +2,9 @@
 
 namespace Brightfish\TextFormatter\Specific;
 
-use Brightfish\TextFormatter\Generic\TextCleaner;
+use Brightfish\TextFormatter\Generic\BaseFormatter;
 
-class PersonNameFormatter extends TextCleaner
+class PersonNameFormatter extends BaseFormatter
 {
     public function __construct()
     {

@@ -4,7 +4,7 @@ namespace Brightfish\TextFormatter\Generic;
 
 use Transliterator;
 
-class TextCleaner
+class BaseFormatter
 {
     private array $stringReplaceBy = [];
 
@@ -58,7 +58,7 @@ class TextCleaner
         return $this;
     }
 
-    public function removeWords(array $words): TextCleaner
+    public function removeWords(array $words): BaseFormatter
     {
         foreach ($words as $word) {
             $this->addReplaceWords([$this->titleCase($word) => '']);
