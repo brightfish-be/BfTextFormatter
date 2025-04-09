@@ -19,3 +19,9 @@ it('does transliteration', function () {
     $formatter->setForceTransliterate(true);
     expect($formatter->format('jacques pâques'))->toBe('Jacques Paques');
 });
+
+it('does titles', function () {
+    $formatter = new PersonNameFormatter();
+    $formatter->setForceTransliterate(true);
+    expect($formatter->format('peter forret ir'))->toBe('Peter Forret ir');
+});

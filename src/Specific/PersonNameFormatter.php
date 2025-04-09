@@ -8,9 +8,9 @@ class PersonNameFormatter extends TextCleaner
 {
     public function __construct()
     {
-        $this->addReplaceStrings([
-            'Ing.' => 'ing.',
-            'Ir.' => 'ir.',
+        $this->addReplaceWords([
+            'Ing' => 'ing',
+            'Ir' => 'ir',
             ]); // specific spelling
     }
 
