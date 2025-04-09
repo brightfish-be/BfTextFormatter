@@ -3,9 +3,16 @@
 [![Tests](https://github.com/brightfish-be/TextFormatter/actions/workflows/run-tests.yml/badge.svg)](https://github.com/brightfish-be/TextFormatter/actions/workflows/run-tests.yml)
 
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
-
-
+```
+src/                                                                                                                                                                                                                                
+├── BaseFormatter.php
+├── CampaignNameFormatter.php
+├── CinemaNameFormatter.php
+├── CompanyNameFormatter.php
+├── MovieTitleFormatter.php
+├── PersonNameFormatter.php
+└── VatNumberFormatter.php
+```
 
 ## Installation
 

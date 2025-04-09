@@ -11,7 +11,6 @@ class CompanyNameFormatter extends BaseFormatter
         $this->uppercaseWords(explode(',', 'MIVB,STIB,TEC,NMBS,SNCB,TIBI,FOD')); // institutional
         $this->uppercaseWords(explode(',', 'OMD,OMG,WPP')); // agencies
         $this->lowercaseWords(explode(',', 'nv,sa,bv,bvba,sprl,srl,cv'));
-        $this->addReplaceStrings(['Cinextra' => 'CineXtra']); // specific spelling
     }
 
     public function format(string $input): string
