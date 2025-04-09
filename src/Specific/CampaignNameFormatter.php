@@ -4,7 +4,7 @@ namespace Brightfish\TextFormatter\Specific;
 
 use Brightfish\TextFormatter\Generic\TextCleaner;
 
-class CampaignFormatter extends TextCleaner
+class CampaignNameFormatter extends TextCleaner
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class CampaignFormatter extends TextCleaner
         $this->uppercaseWords(explode(',', 'MIVB,STIB,TEC,NMBS,SNCB,TIBI,FOD')); // institutional
         $this->uppercaseWords(explode(',', 'OMD,OMG,WPP')); // agencies
         $this->lowercaseWords(explode(',', 'nv,sa,bv,bvba,sprl'));
-        $this->addReplaces(['Cinextra' => 'CineXtra']); // specific spelling
+        $this->addReplaceStrings(['Cinextra' => 'CineXtra']); // specific spelling
     }
 
     public function format(string $input): string

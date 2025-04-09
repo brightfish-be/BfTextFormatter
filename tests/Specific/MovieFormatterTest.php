@@ -1,9 +1,9 @@
 <?php
 
-use Brightfish\TextFormatter\Specific\MovieFormatter;
+use Brightfish\TextFormatter\Specific\MovieTitleFormatter;
 
 it('works for FR titles', function () {
-    $formatter = new MovieFormatter;
+    $formatter = new MovieTitleFormatter;
 
     expect($formatter->format('aimons-nous vivants'))->toBe('Aimons-Nous Vivants')
         ->and($formatter->format('natacha (presque) hôtesse de l\'air'))->toBe('Natacha (Presque) Hôtesse De L\'air')
@@ -11,7 +11,7 @@ it('works for FR titles', function () {
 });
 
 it('works for sequels', function () {
-    $formatter = new MovieFormatter;
+    $formatter = new MovieTitleFormatter;
 
     expect($formatter->format('harry potter ii'))->toBe('Harry Potter II')
         ->and($formatter->format('harry potter iii'))->toBe('Harry Potter III')
@@ -19,21 +19,21 @@ it('works for sequels', function () {
 });
 
 it('keep some stuff uppercase', function () {
-    $formatter = new MovieFormatter;
+    $formatter = new MovieTitleFormatter;
 
     expect($formatter->format('the fbi and the cia'))->toBe('The FBI And The CIA')
         ->and($formatter->format('and the nsa'))->toBe('And The NSA');
 });
 
 it('keep some stuff lowercase', function () {
-    $formatter = new MovieFormatter;
+    $formatter = new MovieTitleFormatter;
 
     expect($formatter->format('super-man vs iron man'))->toBe('Super-Man vs Iron Man')
         ->and($formatter->format('me vs. the rest'))->toBe('Me vs The Rest');
 });
 
 it('handles diacritics', function () {
-    $formatter = new MovieFormatter;
+    $formatter = new MovieTitleFormatter;
 
     expect($formatter->format('âne ét la vâche'))->toBe('Âne Ét La Vâche')
         ->and($formatter->format('ÂNE ÉT LA VÂCHE'))->toBe('Âne Ét La Vâche');
