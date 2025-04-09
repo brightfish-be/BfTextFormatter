@@ -26,7 +26,7 @@ composer require brightfish/textformatter
 ```
 
 > When you need to access _private_ GitHub repositories as well, go to:
-https://github.com/settings/tokens/new?scopes=repo&description=Composer+on+BFLR-PFORRET22+(date))
+https://github.com/settings/tokens/new?scopes=repo&description=Composer+on+(host)+(date))
 >
 > Note that such tokens have broad read/write permissions on your behalf, even if not needed by Composer.
 Tokens will be stored in plain text in "$HOME/.config/composer/auth.json" for future use by Composer.
