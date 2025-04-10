@@ -38,3 +38,15 @@ it('handles diacritics', function () {
     expect($formatter->format('âne ét la vâche'))->toBe('Âne Ét La Vâche')
         ->and($formatter->format('ÂNE ÉT LA VÂCHE'))->toBe('Âne Ét La Vâche');
 });
+
+it('removes words', function () {
+    $formatter = new MovieTitleFormatter;
+
+    expect($formatter->format('Top Gun (Re-release)'))->toBe('Top Gun')
+        ->and($formatter->format('Top Gun (AP)'))->toBe('Top Gun')
+        ->and($formatter->format('Top Gun (3D)'))->toBe('Top Gun')
+        ->and($formatter->format('Top Gun (VOBIL)'))->toBe('Top Gun')
+        ->and($formatter->format('Top Gun (VO-BIL)'))->toBe('Top Gun')
+        ->and($formatter->format('Top Gun (Avant-Premiere)'))->toBe('Top Gun')
+    ;
+});
