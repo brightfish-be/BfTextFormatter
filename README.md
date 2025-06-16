@@ -19,17 +19,8 @@
 You can install the package via composer:
 
 ```bash
-# first add new private repository - you will need a GitHub token
-composer config repositories.repo-name vcs https://github.com/brightfish-be/TextFormatter
-# now require the private package
-composer require brightfish/textformatter
+composer require brightfish/bf-text-formatter
 ```
-
-> When you need to access _private_ GitHub repositories as well, go to:
-https://github.com/settings/tokens/new?scopes=repo&description=Composer+on+(host)+(date))
->
-> Note that such tokens have broad read/write permissions on your behalf, even if not needed by Composer.
-Tokens will be stored in plain text in "$HOME/.config/composer/auth.json" for future use by Composer.
 
 ## Usage
 
