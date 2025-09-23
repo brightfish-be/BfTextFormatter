@@ -64,7 +64,10 @@ class BaseFormatter
     public function removeWords(array $words): BaseFormatter
     {
         foreach ($words as $word) {
-            $this->addReplaceWords([$this->titleCase($word) => '']);
+            $this->addReplaceWords([$this->titleCase($word)." " => '']);
+            $this->addReplaceWords([$this->titleCase($word)."." => '']);
+            $this->addReplaceWords([$this->titleCase($word).":" => '']);
+            $this->addReplaceWords(["(".$this->titleCase($word).")" => '']);
         }
 
         return $this;

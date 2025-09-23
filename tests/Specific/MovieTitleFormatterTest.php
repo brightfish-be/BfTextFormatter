@@ -39,6 +39,21 @@ it('handles diacritics', function () {
         ->and($formatter->format('ÂNE ÉT LA VÂCHE'))->toBe('Âne Ét La Vâche');
 });
 
+it('removes AP', function () {
+    $formatter = new MovieTitleFormatter;
+
+    expect($formatter->format('AP: De kampioenen'))->toBe('De Kampioenen')
+        ->and($formatter->format('AP De Kampioenen'))->toBe('De Kampioenen');
+});
+
+it('handles words like apres', function () {
+    $formatter = new MovieTitleFormatter;
+
+    expect($formatter->format('Le monde apres moi'))->toBe('Le Monde Apres Moi')
+        ->and($formatter->format('de paprika kok'))->toBe('De Paprika Kok')
+    ->and($formatter->format('DE VOBILJETTEN'))->toBe('De Vobiljetten');
+});
+
 it('removes words', function () {
     $formatter = new MovieTitleFormatter;
 
